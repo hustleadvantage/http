@@ -9,17 +9,17 @@ export interface Http {
 }
 
 export namespace Http {
-  export type Delete = <T = any>(path: string) => TE.TaskEither<Error, T>;
+  export type Delete = <T = any>(url: string) => TE.TaskEither<Error, T>;
 
   export type Get = <T = any>(
-    path: string,
+    url: string,
   ) => (params: O.Option<any>) => TE.TaskEither<Error, T>;
 
   export type Post = <T = any>(
-    path: string,
+    url: string,
   ) => (data: any) => TE.TaskEither<Error, T>;
 
   export type Put = <T = any>(
-    path: string,
+    url: string,
   ) => (data: { [key: string]: any }) => TE.TaskEither<Error, T>;
 }

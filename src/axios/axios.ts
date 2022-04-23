@@ -7,7 +7,7 @@ import {
 } from './handlers';
 import * as O from 'fp-ts/Option';
 import { pipe } from 'fp-ts/lib/function';
-import { Http } from '../types';
+import { Http } from '../../types';
 
 export namespace AxiosHttp {
   const _create =
