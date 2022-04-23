@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosStatic } from 'axios';
+import axios, { AxiosRequestConfig, AxiosStatic } from 'axios';
 import {
   AxiosDeleteHandler,
   AxiosGetHandler,
@@ -10,7 +10,7 @@ import { pipe } from 'fp-ts/lib/function';
 import { Http } from '../types';
 
 export namespace AxiosHttp {
-  export const create =
+  const _create =
     (axios: AxiosStatic) =>
     (config: O.Option<AxiosRequestConfig>): Http => {
       const httpClient = axios.create(pipe(config, O.toUndefined));
@@ -22,4 +22,6 @@ export namespace AxiosHttp {
         put: AxiosPutHandler.handle(httpClient),
       };
     };
+
+  export const create = _create(axios);
 }
